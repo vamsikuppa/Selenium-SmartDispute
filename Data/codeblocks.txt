@@ -1,0 +1,91 @@
+List<WebElement> inputElements = wizard.findElements(By.xpath("//input[not(contains(@type, 'hidden'))]"));
+		List<WebElement> selectElements = wizard.findElements(By.xpath("//select"));
+		System.out.println(Integer.toString(inputElements.size()));
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------");
+		// for (WebElement el : inputElements) {
+		//
+		// System.out.println(el.getTagName() + " data-test-id: " +
+		// el.getAttribute("data-test-id") + " id: "
+		// + el.getAttribute("id") + " Title: " + el.getAttribute("Title"));
+		// }
+		System.out.println("------------------------------INPUT ELEMENTS OPEN--------------------------------------");
+		for (WebElement el : inputElements) {
+			String title = el.getAttribute("Title");
+			if ((el.getAttribute("data-test-id") != null) && (el.getAttribute("data-test-id") != "")) {
+				// System.out.println("---------------DATA-TEST-ID---------------");
+				if ((title != null) && (title != "") && (title != " ")) {
+					System.out.println("By " + title.toUpperCase().replace(" ", "_") + "=" + "By.xpath(" + "\"//input"
+							+ "[@data-test-id=" + "'" + el.getAttribute("data-test-id") + "'" + "]" + "\");");
+				} else if ((el.getAttribute("name") != null) && (el.getAttribute("name") != "")) {
+					System.out.println("By " + el.getAttribute("name").toUpperCase().replace(" ", "_") + "="
+							+ "By.xpath(" + "\"//input" + "[@data-test-id=" + "'" + el.getAttribute("data-test-id")
+							+ "'" + "]" + "\");");
+				}
+
+			} else if ((el.getAttribute("id") != null) && (el.getAttribute("id") != "")) {
+				// System.out.println("---------------IDEN---------------");
+				if ((title != null) && (title != "") && (title != " ")) {
+					System.out.println("By " + title.toUpperCase().replace(" ", "_") + "=" + "By.id(" + "\""
+							+ el.getAttribute("id") + "\");");
+				} else if ((el.getAttribute("name") != null) && (el.getAttribute("name") != "")) {
+
+					System.out.println("By " + el.getAttribute("name").toUpperCase().replace(" ", "_") + "=" + "By.id("
+							+ "\"" + el.getAttribute("id") + "\");");
+
+				}
+			}
+		}
+		System.out.println("------------------------------INPUT ELEMENTS CLOSE--------------------------------------");
+
+		System.out.println(
+				"-------------------------------SELECT ELEMENTS OPEN--------------------------------------------");
+
+		for (WebElement el : selectElements) {
+			String title = el.getAttribute("Title");
+			if ((el.getAttribute("data-test-id") != null) && (el.getAttribute("data-test-id") != "")) {
+				// System.out.println("---------------DATA-TEST-ID---------------");
+				if ((title != null) && (title != "") && (title != " ")) {
+					System.out.println("By " + title.toUpperCase().replace(" ", "_") + "=" + "By.xpath(" + "\"//select"
+							+ "[@data-test-id=" + "'" + el.getAttribute("data-test-id") + "'" + "]" + "\");");
+				} else if ((el.getAttribute("name") != null) && (el.getAttribute("name") != "")) {
+					System.out.println("By " + el.getAttribute("name").toUpperCase().replace(" ", "_") + "="
+							+ "By.xpath(" + "\"//select" + "[@data-test-id=" + "'" + el.getAttribute("data-test-id")
+							+ "'" + "]" + "\");");
+				}
+
+			} else if ((el.getAttribute("id") != null) && (el.getAttribute("id") != "")) {
+				// System.out.println("---------------IDEN---------------");
+				if ((title != null) && (title != "") && (title != " ")) {
+					System.out.println("By " + title.toUpperCase().replace(" ", "_") + "=" + "By.id(" + "\""
+							+ el.getAttribute("id") + "\");");
+				} else if ((el.getAttribute("name") != null) && (el.getAttribute("name") != "")) {
+
+					System.out.println("By " + el.getAttribute("name").toUpperCase().replace(" ", "_") + "=" + "By.id("
+							+ "\"" + el.getAttribute("id") + "\");");
+
+				}
+			}
+		}
+
+		System.out.println(
+				"-------------------------------SELECT ELEMENTS CLOSE--------------------------------------------");
+		
+1. Instead of List from data table, can we use Key-Value Pair
+
+
+
+Write to a new file
+String currentDirectory = new File("").getAbsolutePath();
+FileUtils.writeStringToFile(new File(currentDirectory + "\\Data\\case_id.txt"), license_id);
+
+
+Read from existing file
+String CASE_ID = DataUtil.readFileToString("case_id.txt");
+
+
+Generate Random Number
+int randomNumber = (int) (Math.floor(Math.random() * 900) + 100000);
+String lastname = list.get(2).get(1) + randomNumber;
+
+
